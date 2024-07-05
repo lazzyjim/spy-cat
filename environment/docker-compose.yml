@@ -1,0 +1,30 @@
+version: "3.0"
+
+networks:
+  spy-cat:
+    ipam:
+      driver: default
+
+services:
+  postgresql.loc:
+    build:
+      context: postgres
+      dockerfile: Dockerfile
+      args:
+        UID: ${UID}
+    container_name: spy_cat.postgresql
+    volumes:
+      - pg_portal_data:/var/lib/postgresql/data/pgdata
+    environment:
+      POSTGRES_USER: cat
+      POSTGRES_PASSWORD: cat
+      POSTGRES_DB: db
+      PGDATA: /var/lib/postgresql/data/pgdata
+    networks:
+      - spy-cat
+    ports:
+      - 5432:5432
+
+volumes:
+  pg_portal_data:
+
