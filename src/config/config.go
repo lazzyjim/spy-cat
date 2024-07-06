@@ -7,19 +7,13 @@ import (
 )
 
 type Common struct {
-	DB         Postgres `json:"db"`
-	CatsApiCli CatsApi  `json:"cats_api_cli"`
+	DB Postgres `json:"db"`
 }
 
 func (c Common) Validation() error {
 	err := c.DB.Validate()
 	if err != nil {
 		return fmt.Errorf("section db has an error, err:%s", err)
-	}
-
-	err = c.CatsApiCli.Validate()
-	if err != nil {
-		return fmt.Errorf("section cats_api_cli has an error, err:%s", err)
 	}
 	return nil
 }

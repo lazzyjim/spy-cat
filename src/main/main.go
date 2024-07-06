@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/valyala/fasthttp"
+	"log"
 	"os"
 	"spy-cat/src/config"
 	"spy-cat/src/db"
@@ -11,9 +12,7 @@ import (
 
 func main() {
 	err := runRestApi()
-	if err != nil {
-		fmt.Println(err)
-	}
+	log.Fatal(err)
 }
 
 func init() {

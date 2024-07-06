@@ -21,17 +21,6 @@ type Postgres struct {
 	} `json:"settings"`
 }
 
-type CatsApi struct {
-	Host string `json:"host"`
-}
-
-func (r *CatsApi) Validate() error {
-	if r.Host == "" {
-		return errors.New("property `host` is required")
-	}
-	return nil
-}
-
 func (r *Postgres) Validate() error {
 
 	if r.Port == 0 {

@@ -1,28 +1,31 @@
 package db
 
-import "time"
-
 type SpyCat struct {
-	Id                uint16
-	Name              string
-	YearsOfExperience uint16
-	Breed             string
-	BreedValidation   time.Time
-	Salary            uint16
+	Id                uint16  `json:"id"`
+	Name              string  `json:"name"`
+	YearsOfExperience uint16  `json:"years_of_experience"`
+	Breed             string  `json:"breed"`
+	BreedValidation   bool    `json:"breed_validation"`
+	Salary            float32 `json:"salary"`
 }
 
 type Target struct {
-	Id            uint16
-	MissionId     uint16
-	Name          string
-	Country       string
-	Notes         string
-	CompleteState time.Time
+	Id            uint16 `json:"id"`
+	MissionId     uint16 `json:"mission_id"`
+	Name          string `json:"name"`
+	Country       string `json:"country"`
+	Notes         string `json:"notes"`
+	CompleteState bool   `json:"complete_state"`
 }
 
 type Mission struct {
-	Id            uint16
-	CatId         uint16
-	Targets       []Target
-	CompleteState time.Time
+	Id            uint16   `json:"id"`
+	Name          string   `json:"name"`
+	CatId         uint16   `json:"cat_id"`
+	Targets       []Target `json:"targets"`
+	CompleteState bool     `json:"complete_state"`
+}
+
+type Breed struct {
+	Name string `json:"name"`
 }

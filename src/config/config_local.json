@@ -10,8 +10,5 @@
       "maximumPoolSize": 3,
       "connectionTimeout": 60
     }
-  },
-  "cats_api_cli" : {
-    "host" : "https://api.thecatapi.com/v1/breeds"
   }
 }
